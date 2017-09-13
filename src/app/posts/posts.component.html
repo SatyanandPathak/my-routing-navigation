@@ -1,0 +1,16 @@
+  <div *ngIf="postsForm.errors" class="alert alert-danger">
+    {{postsForm.errors.message}}
+  </div>
+  <form [formGroup] = "postsForm">
+      <input 
+      #inputPost
+      (keyup.enter) = "createPost(inputPost)"
+      type="text" 
+      class="form-control">
+    
+      <ul class="list-group">
+        <li *ngFor="let post of posts" class="list-group-item">
+          {{post.title}}
+        </li>
+      </ul> 
+    </form>
